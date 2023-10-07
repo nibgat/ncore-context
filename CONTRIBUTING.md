@@ -34,19 +34,13 @@ yarn example start
 To run the example app on Android:
 
 ```sh
-yarn example android
+yarn example-android
 ```
 
 To run the example app on iOS:
 
 ```sh
-yarn example ios
-```
-
-To run the example app on Web:
-
-```sh
-yarn example web
+yarn example-ios
 ```
 
 Make sure your code passes TypeScript and ESLint. Run the following to verify:
