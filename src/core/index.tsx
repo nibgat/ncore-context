@@ -3,7 +3,8 @@ import React, {
     useContext,
     useReducer,
     useEffect,
-    Dispatch
+    Dispatch,
+    FC
 } from "react";
 import {
     ConfigType 
@@ -70,11 +71,9 @@ class NCoreContext<T extends {} | undefined> {
     };
 
     // context provider:
-    Provider = ({
+    Provider: FC = ({
         children
-    }: {
-      children: JSX.Element
-  }) => {
+    }) => {
         const StateContextRenderer = this.stateContext;
 
         const [state, setState]: [T, Dispatch<Partial<T>>] = useReducer((state: T, nextState: Partial<T>) => {
