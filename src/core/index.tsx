@@ -10,7 +10,7 @@ import {
     ConfigType 
 } from "../types";
 
-class NCoreContext<T extends {} | undefined> {
+class NCoreContext<T extends {} | undefined, K extends ConfigType<T>> {
     // context:
     // @ts-ignore // TODO: Type problem will be fix.
     stateContext = createContext<T>({
@@ -24,12 +24,12 @@ class NCoreContext<T extends {} | undefined> {
       func: (state: T) => void;
       key: string;
   }> = [];
-    config: ConfigType<T>;
+    config: K;
 
     // hooks:
     useContext = (): T => useContext(this.stateContext);
 
-    constructor(state: T, config: ConfigType<T>) {
+    constructor(state: T, config: K) {
         // set initial state:
         this.state = state;
         this.config = config;
