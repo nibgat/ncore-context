@@ -3,9 +3,8 @@ import React, {
     useContext,
     useReducer,
     useEffect,
-    Dispatch,
-    FC,
-    ReactNode
+    ReactNode,
+    Dispatch
 } from "react";
 import {
     ConfigType 
