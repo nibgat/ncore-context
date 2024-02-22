@@ -4,7 +4,8 @@ import React, {
     useReducer,
     useEffect,
     Dispatch,
-    FC
+    FC,
+    ReactNode
 } from "react";
 import {
     ConfigType 
@@ -52,6 +53,7 @@ class NCoreContext<T extends {} | undefined, K extends ConfigType<T>> {
         });
     };
 
+    // listeners:
     addEventListener = (key: string, func: (state: T) => void) => {
         this.subscribers.push({
             func,
@@ -71,8 +73,10 @@ class NCoreContext<T extends {} | undefined, K extends ConfigType<T>> {
     };
 
     // context provider:
-    Provider: FC = ({
+    Provider = ({
         children
+    }: {
+        children: ReactNode;
     }) => {
         const StateContextRenderer = this.stateContext;
 

@@ -1,6 +1,6 @@
 {
   "name": "ncore-context",
-  "version": "0.1.0-pre-alpha.6",
+  "version": "0.1.0-pre-alpha.7",
   "description": "Global State Management Library for NCore",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
