@@ -1,6 +1,6 @@
 # ncore-context
 
-Global State Management Library for NCore
+State Management Library for NCore
 
 ## Installation
 
