@@ -17,3 +17,4 @@ stories
 jest-setup.ts
 jest.config.js
 docs-build
+/.history
