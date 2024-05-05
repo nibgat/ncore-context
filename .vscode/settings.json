@@ -1,0 +1,11 @@
+{
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    },
+    "eslint.options": {
+      "extensions": [".html", ".js", ".jsx", ".ts", ".tsx"]
+    },
+    "eslint.validate": ["javascript", "typescript", "html"],
+    "files.eol": "auto"
+}
