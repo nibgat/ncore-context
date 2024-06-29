@@ -59,7 +59,7 @@ class NCoreContext<T extends {} | undefined, K extends ConfigType<T>> {
     };
 
     // event listeners:
-    addEventListener = (key: string, func: (state: T) => void) => {
+    addEventListener = (key: string, func: (payload: any, state: T) => void) => {
         this.subscribers.push({
             func,
             key
