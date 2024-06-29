@@ -1,6 +1,6 @@
 {
     "name": "ncore-context",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "NİBGAT® | NCore - Context",
     "main": "lib/index.js",
     "module": "lib/index.js",
