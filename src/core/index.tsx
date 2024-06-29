@@ -21,7 +21,7 @@ class NCoreContext<T extends {} | undefined, K extends ConfigType<T>> {
     setState: (state: Partial<T> | any) => void = () => {
     };
     subscribers: Array<{
-      func: (state: T) => void;
+      func: (params: any, state: T) => void;
       key: string;
   }> = [];
     config: K;
@@ -45,14 +45,20 @@ class NCoreContext<T extends {} | undefined, K extends ConfigType<T>> {
         }
     }
 
-    // event emitter:
-    emit = (state: T) => {
+    // event emitters:
+    emit = (params: any, state: T) => {
         this.subscribers.forEach(subscriber => {
-            subscriber.func(state);
+            subscriber.func(params, state);
         });
     };
 
-    // listeners:
+    emitWithKey = (key: string, payload?: any) => {
+        this.subscribers.forEach(subscriber => {
+            if(subscriber.key === key) subscriber.func(payload, this.state);
+        });
+    };
+
+    // event listeners:
     addEventListener = (key: string, func: (state: T) => void) => {
         this.subscribers.push({
             func,
@@ -87,7 +93,7 @@ class NCoreContext<T extends {} | undefined, K extends ConfigType<T>> {
 
             this.state = newState;
 
-            this.emit(this.state);
+            this.emit(undefined, this.state);
 
             if(this.config.isSaveState && this.config.onStorageUpdate) {
                 this.config.onStorageUpdate(this.state);
